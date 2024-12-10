@@ -1,0 +1,121 @@
+  <%- layout('/listings/layouts/boilerplate') %>
+ 
+ <%= success %>
+
+<div id="filters">
+    
+     <div class="filter" data-category="all">
+        <i class="fa-solid fa-list"></i>
+        <p>All</p>
+    </div>
+
+    <div class="filter" data-category="Trending">
+        <i class="fa-solid fa-fire"></i>
+        <p>Trending</p>
+    </div>
+    <div class="filter" data-category="Room">
+        <i class="fa-solid fa-bed"></i>
+        <p>Room</p>
+    </div>
+    <div class="filter" data-category="Farm">
+        <i class="fa-solid fa-cow"></i>
+        <p>Farm</p>
+    </div>
+    <div class="filter" data-category="Castel">
+        <i class="fa-brands fa-fort-awesome"></i>
+        <p>Castel</p>
+    </div>
+    <div class="filter" data-category="Top Cities">
+        <i class="fa-solid fa-building"></i>
+        <p>Top Cities</p>
+    </div>
+    <div class="filter" data-category="Mountain">
+        <i class="fa-solid fa-mountain"></i>
+        <p>Mountain</p>
+    </div>
+    <div class="filter" data-category="Mountain cities">
+        <i class="fa-solid fa-mountain-city"></i>
+        <p>Mountain cities</p>
+    </div>
+    <div class="filter" data-category="Camping">
+        <i class="fa-solid fa-tents"></i>
+        <p>Camping</p>
+    </div>
+
+    <div class="filter" data-category="Beach">
+        <i class="fa-solid fa-umbrella-beach"></i>
+        <p>Beach</p>
+    </div>
+    <div class="filter" data-category="Boats">
+        <i class="fa-solid fa-ship"></i>
+        <p>Boats</p>
+    </div>
+
+    <div class="tax-toggle">
+        <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Display total before taxes</label>
+        </div>
+    </div>
+</div> 
+
+ <div class="row row-cols-lg-3">
+    <% for (const listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+            <div class="card listing-card" data-category="<%= listing.category %>">
+                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image">
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b><%= listing.title %></b><br>
+                        &#8377;<%= listing.price.toLocaleString("en-IN") %> night
+                        <i class="taxinfo"> &nbsp;&nbsp; 18% GST</i>
+                    </p>
+                </div>
+            </div>
+        </a>
+    <% } %>
+</div>
+
+<script>
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    let taxInfo = document.getElementsByClassName("taxinfo");
+    taxSwitch.addEventListener("click", () => {
+        for (info of taxInfo) {
+            if (info.style.display != "inline") {
+                info.style.display = "inline";
+            } else {
+                info.style.display = "none";
+            }
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const filters = document.querySelectorAll(".filter"); // Select all filters
+        const listings = document.querySelectorAll(".listing-card"); // Select all listings
+
+        // Add click event listener to each filter
+        filters.forEach((filter) => {
+            filter.addEventListener("click", () => {
+                const category = filter.getAttribute("data-category"); // Get the category of the clicked filter
+
+
+                // Show/Hide listings based on the category
+                listings.forEach((listing) => {
+                    const listingCategory = listing.getAttribute("data-category");
+                    if (category === "all" || listingCategory === category) {
+                        listing.style.display = "block"; // Show matching listing
+                    } else {
+                        listing.style.display = "none"; // Hide non-matching listing
+                    }
+                });
+            });
+        });
+    });
+</script> 
+
+
+
+
+
+     

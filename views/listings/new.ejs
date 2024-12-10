@@ -1,0 +1,99 @@
+<%- layout('/listings/layouts/boilerplate') %>
+
+    import { listings } from './listings.js';
+    <div class="row">
+        <div class="col-8 offset-2">
+
+            <body>
+                <br>
+                <h3>Create a List</h3>
+                <br>
+                <form method="POST" action="/listings" class="needs-validation" novalidate
+                    enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="title" name="listing[title]" placeholder="Enter title" class="form-control"
+                            required>
+                        <div class="valid-feedback">Title looks good</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="listing[description]" placeholder="Enter description" class="form-control"
+                            required></textarea>
+                        <div class="invalid-feedback">Description is needed</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" name="listing[image]" class="form-control" required>
+                    </div>
+                    <div class="row">
+
+                        <div class="mb-3 col-md-6">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="text" name="listing[price]" placeholder="Enter Price" class="form-control"
+                                required>
+                            <div class="invalid-feedback">Price is needed</div>
+                        </div>
+
+                        <div class="dropdown col-md-6 ">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" required>
+                                Select Category
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Trending</a></li>
+                                <li><a class="dropdown-item" href="#">Room</a></li>
+                                <li><a class="dropdown-item" href="#">Farm</a></li>
+                                <li><a class="dropdown-item" href="#">Castel</a></li>
+                                <li><a class="dropdown-item" href="#">Top Cities</a></li>
+                                <li><a class="dropdown-item" href="#">Mountain</a></li>
+                                <li><a class="dropdown-item" href="#">Mountain cities</a></li>
+                                <li><a class="dropdown-item" href="#">Camping</a></li>
+                                <li><a class="dropdown-item" href="#">Artic</a></li>
+                                <li><a class="dropdown-item" href="#">Beach</a></li>
+                                <li><a class="dropdown-item" href="#">Boats</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="location" name="listing[location]" placeholder="Enter location"
+                                class="form-control" id="location" required>
+                            <div class="invalid-feedback">Location is needed</div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="country" name="listing[country]" placeholder="Enter country"
+                                class="form-control" id="country" required>
+                            <div class="invalid-feedback">Country is needed</div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <button class="btn btn-dark add-btn">Add</button>
+                    <br><br>
+                </form>
+            </body>
+        </div>
+    </div>
+    <script>
+        
+        let dropdownItems = document.getElementsByClassName("dropdown-item");
+        let btn = document.querySelector(".dropdown-toggle");
+        Array.from(dropdownItems).forEach(item => {
+            item.addEventListener("click", () => {
+                // Update the button's text with the selected dropdown item's text
+                btn.textContent = item.textContent;
+            });
+        });
+
+
+        // Function to render listings
+       
+
+
+
+
+
+    </script>
