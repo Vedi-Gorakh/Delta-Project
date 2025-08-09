@@ -1,7 +1,10 @@
 # Wanderlust
 
 
-![Demo GIF](https://ibb.co/8n06j5RF)
+<p align="center">
+  <a href="https://ibb.co/8n06j5RF"><img src="https://i.ibb.co/cK1DNFpz/WANDERLUST.gif" alt="WANDERLUST" border="0" /></a>
+</p>
+
 
 
 ## Overview
