@@ -1,6 +1,8 @@
 # Wanderlust
 
-![Wanderlust Demo](https://ibb.co/8n06j5RF) <!-- Replace 'demo.gif' with your actual GIF file name -->
+
+![Demo GIF](https://ibb.co/8n06j5RF)
+
 
 ## Overview
 **Wanderlust** is a beautifully designed travel listing website that helps users explore, discover, and book unique stays around the world. Inspired by platforms like Airbnb, it offers a clean interface, easy navigation, and a delightful user experience.
